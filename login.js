@@ -51,6 +51,7 @@ var urlBase = 'https://COP4331-g16.com/LAMPAPI';
 var extension = 'php';
 
 var userId = 0;
+var status ="";
 
 
 function doLogin()
@@ -73,19 +74,16 @@ function doLogin()
 	try
 	{
 		xhr.send(jsonPayload);
-		
 		var jsonObject = JSON.parse( xhr.responseText );
-		
 		userId = jsonObject.id;
-
 		
 		if( userId < 1 )
 		{
-			document.getElementById("result").innerHTML = "no match found";
+			document.getElementById("errorMessageLogin").innerHTML = "Email or Password doesnt match any existing accounts";
 			return;
 		}
-
-		// saveCookie();
+        // save userId to a cookie for later use
+        document.cookie = userId;
 	
 		window.location.href = "example.html";
 	}
@@ -100,6 +98,8 @@ function doLogin()
 function doRegister()
 {
 	userId = 0;
+	status = "";
+	
 	var regEmail = document.getElementById("registerEmail").value;
 	var RegisterPass = document.getElementById("registerPWD").value;
 	var ConfirmPass = document.getElementById("confirmPWD").value;
@@ -117,9 +117,8 @@ function doRegister()
 	// Register the user
 	else 
 	{
-		// DEBUG purposes
-		// alert("Password Matches");
-		// return;
+		// clear previous error message
+		document.getElementById("errorMessageRegister").innerHTML = "";
 
 		var jsonPayload = '{"Email" : "' + regEmail + '", "Password" : "' + RegisterPass + '"}';
 		var url = urlBase + '/Register.' + extension;
@@ -131,21 +130,23 @@ function doRegister()
 		try
 		{
 			xhr.send(jsonPayload);
-			
+	
 			var jsonObject = JSON.parse( xhr.responseText );
 			
-			userId = jsonObject.id;
-
+			status = jsonObject.error;
 			
-			if( userId < 1 )
+			// check for errors
+			if( status !== "" )
 			{
-				document.getElementById("errorMessageRegister").innerHTML = "Error in registering";
+				document.getElementById("errorMessageRegister").innerHTML = err.message;
 				return;
 			}
 			
-
-			// print a message telling the user the registration was succesful
-			document.getElementById("Success").innerHTML = "Registration was successful";
+			// clear any errors
+			document.getElementById("errorMessageRegister").innerHTML = "";
+			
+			// notify user the registration was succesful
+			document.getElementById("Success").innerHTML = "Registration was successful!";
 			
 		}
 		catch(err)
@@ -157,43 +158,36 @@ function doRegister()
 
 }
 
-// function saveCookie()
-// {
-// 	var minutes = 20;
-// 	var date = new Date();
-// 	date.setTime(date.getTime()+(minutes*60*1000));	
-// 	document.cookie = "userId=" + userId + ";expires=" + date.toGMTString();
-// }
 
 // function readCookie()
 // {
-// 	userId = -1;
-// 	var data = document.cookie;
-// 	var splits = data.split(",");
-// 	for(var i = 0; i < splits.length; i++) 
-// 	{
-// 		var thisOne = splits[i].trim();
-// 		var tokens = thisOne.split("=");
-// 		if( tokens[0] == "firstName" )
-// 		{
-// 			firstName = tokens[1];
-// 		}
-// 		else if( tokens[0] == "lastName" )
-// 		{
-// 			lastName = tokens[1];
-// 		}
-// 		else if( tokens[0] == "userId" )
-// 		{
-// 			userId = parseInt( tokens[1].trim() );
-// 		}
-// 	}
+    // 	userId = -1;
+    // 	var data = document.cookie;
+    // 	var splits = data.split(",");
+    // 	for(var i = 0; i < splits.length; i++) 
+    // 	{
+    // 		var thisOne = splits[i].trim();
+    // 		var tokens = thisOne.split("=");
+    // 		if( tokens[0] == "firstName" )
+    // 		{
+    // 			firstName = tokens[1];
+    // 		}
+    // 		else if( tokens[0] == "lastName" )
+    // 		{
+    // 			lastName = tokens[1];
+    // 		}
+    // 		else if( tokens[0] == "userId" )
+    // 		{
+    // 			userId = parseInt( tokens[1].trim() );
+    // 		}
+    // 	}
 	
-// 	if( userId < 0 )
-// 	{
-// 		window.location.href = "index.html";
-// 	}
-// 	else
-// 	{
-// 		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
-// 	}
+    // 	if( userId < 0 )
+    // 	{
+    // 		window.location.href = "index.html";
+    // 	}
+    // 	else
+    // 	{
+    // 		document.getElementById("userName").innerHTML = "Logged in as " + firstName + " " + lastName;
+    // 	}
 // }
