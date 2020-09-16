@@ -1,0 +1,256 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap");
+
+body {
+  margin: 0;
+  padding: 0;
+  /* overflow: hidden; */
+}
+
+input.form-control {
+  outline: none;
+}
+
+h3 {
+  text-align: center;
+  font-family: "Roboto", sans-serif;
+  font-size: 18px;
+}
+
+h5 {
+  text-align: center;
+  font-size: 13px;
+  font-family: "Roboto", sans-serif;
+}
+
+input:focus {
+  outline: none;
+}
+
+.wrapper {
+  height: 100%;
+  width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    url(bg.jpg);
+  background-size: cover;
+  background-position: center;
+  position: absolute;
+}
+
+input:focus {
+  outline: none;
+}
+
+.navbar {
+  position: absolute;
+  width: 100%;
+  height: 60px;
+  background-color: #232f3e;
+}
+
+.navbar ul {
+  list-style: none;
+  display: flex;
+  flex: 1;
+  justify-content: space-around;
+}
+
+.navbar button {
+  border: none;
+  background: transparent;
+  /* color: white; */
+}
+
+.content {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  max-height: 790px;
+  overflow-y: scroll;
+}
+
+.content-body {
+  display: flex;
+  background-color: #fffaf0;
+  height: 80%;
+  width: 60%;
+  border-radius: 10px;
+  margin-top: -30px;
+  /* max-width: 630px; */
+  max-height: 800px;
+  /* overflow: hidden; */
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0.4;
+  overflow-x: hidden;
+  min-width: 194px;
+}
+
+.sidebar-header {
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid lightgray;
+  display: flex;
+  flex-direction: row;
+}
+
+#title {
+  margin: 0;
+  padding: 0;
+}
+
+#sideheader {
+  margin: 0;
+  padding: 0;
+}
+
+.button {
+  background: transparent;
+  border: none;
+  outline: none;
+}
+
+.contact-information {
+  display: flex;
+  flex-direction: column;
+  flex: 0.6;
+  overflow: hidden;
+}
+
+.contact-information-header {
+  padding: 20px;
+}
+
+.contact-information-body {
+  text-align: center;
+}
+
+.search {
+  display: flex;
+  flex-direction: row;
+  margin: 5px;
+  background-color: #f8f8ff;
+}
+
+.search > input {
+  flex: 1;
+  background-color: #f8f8ff;
+}
+
+.search > button {
+  outline: none;
+  border: none;
+  background-color: #fffaf0;
+}
+
+.search > button:hover {
+  color: #dcdcdc;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow-y: scroll;
+  overflow: wrap;
+}
+
+.contacts::-webkit-scrollbar {
+  display: none;
+}
+
+#addcontact {
+  position: absolute;
+}
+
+.card-container {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.card-body {
+  width: 60%;
+  height: 80%;
+  margin: 20px;
+
+  background-image: url(cardbg2.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.card-text {
+  font-family: Helvetica, sans-serif;
+  margin: 20px;
+}
+
+.card-button {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.addcontact {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  place-items: center;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.addcontact > h5 {
+  text-align: center;
+  padding: 10px;
+}
+
+.addform {
+  width: 320px;
+  height: 400px;
+  background-color: white;
+  position: relative;
+}
+
+.exit {
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.form-container {
+  margin: 20px;
+  margin-top: 50px;
+}
+
+.displayName {
+  cursor: pointer;
+}
+
+.displayName:hover {
+  font-weight: bold;
+}
+
+.message-container {
+  position: absolute;
+  width: 100%;
+  height: 50px;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+}
+
+.message {
+  background-color: green;
+  position: relative;
+  height: 50px;
+  width: 20%;
+  display: none;
+}

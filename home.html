@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./home.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.5.0/css/all.css"
+      integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU"
+      crossorigin="anonymous"
+    />
+    <title>home</title>
+  </head>
+  <body onload="onMount();">
+    <div class="wrapper">
+      <div class="navbar">
+        <ul>
+          <li>
+            <button type="button" class="btn btn-secondary">My Contacts</button>
+          </li>
+          
+          <li>
+            <div class="btn-group" id="dropdown">
+              <button
+              class="btn btn-secondary btn-md dropdown-toggle"
+              type="button"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+              >
+              <i class="fas fa-user fa-2x user"></i>
+            </button>
+            
+            <div class="dropdown-menu" >
+              <div id='user' style="text-align: center;"></div>
+            <div>
+              <button
+              class="btn btn-secondary"
+              style="color: black; text-align: center;"
+              onClick="signout()"
+              >
+              Sign out
+                </button>
+            </div>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
+
+<div class="content">
+  <div class="content-body">
+    
+    <div class="sidebar">
+      
+      <div class="sidebar-header">
+        <div class="user"></div>
+        <h3 id="sideheader">Contacts</h3>
+        
+        <div>
+          <button type="reset" class="button" onClick="displayAddForm('grid')">
+            <i class="fas fa-plus fa-2x"></i>
+          </button>
+        </div>
+      </div>
+      
+      <div class="search" >
+        <input
+        id="search"
+        type="text"
+        class="form-control"
+        placeholder="Search a contact"
+        />
+        <button onClick="userSearch()">
+          <i class="fa fa-search" aria-hidden="true"></i>
+        </button>
+      </div>
+      <div class="container">
+        <h3>All</h3>
+      </div>
+      <div class="contacts" id='contact'>
+      </div>
+    </div>
+    
+    <div class="contact-information" >
+      
+      <div class="contact-information-header">
+        <h3>Contact Information</h3>
+      </div>
+      <div class="contact-information-body">
+        <h5>Select on a contact to display contents</h5>
+      </div>
+      
+      <div class="card-container" >
+        <div class="card-body" id='card-body'></div>
+        </div>
+        
+      </div>
+      
+    </div>
+  </div>
+  </div>
+  <!-- Displays add contact form to ui -->
+  <div id="addContact" class="addcontact">
+    <div class="addform">
+      <h5>Add Contact</h5>
+      <button class="btn btn-danger btn-xs exit" onClick="displayAddForm('none')">X</button>
+      <div class="form-container">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">First Name</label>
+              <input type="text" class="form-control" id="fname" placeholder="First Name" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="last name">Last name</label>
+              <input type="text" class="form-control" id="lname" placeholder="Last Name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="email" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <label for="Phone Number">Phone Number</label>
+            <input type="text" class="form-control" id="phone" placeholder="Phone Number" required>
+          </div>
+    
+          <button type='reset' class="btn btn-primary" onClick="addContact()">Add Contact</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+  <div id="editContact" class="addcontact">
+    <div class="addform">
+      <h5>Edit Contact</h5>
+      <button class="btn btn-danger btn-xs exit" onClick="displayEditForm('none')">X</button>
+      <div class="form-container">
+        <form>
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="inputEmail4">First Name</label>
+              <input type="text" class="form-control" id="upFname" placeholder="First Name" required>
+            </div>
+            <div class="form-group col-md-6">
+              <label for="last name">Last name</label>
+              <input type="text" class="form-control" id="upLname" placeholder="Last Name" required>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" class="form-control" id="upEmail" placeholder="Email Address" required>
+          </div>
+          <div class="form-group">
+            <label for="Phone Number">Phone Number</label>
+            <input type="text" class="form-control" id="upPhone" placeholder="Phone Number" required>
+          </div>
+          
+          <button type='reset' class="btn btn-success" onClick="updateContact()">Update</button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+    <div class="message-container">
+
+      <div id='message' class="message"></div>
+    </div>
+
+  <script src="./home.js"></script>
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+</body>
+</html>
