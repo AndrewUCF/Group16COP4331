@@ -3,112 +3,52 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./index.css" />
     <link
       rel="stylesheet"
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
       crossorigin="anonymous"
     />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
-    />
-    <!-- DEBUG comment (added 9-11) --> 
-    <link rel="stylesheet" href="css/login.css" />
-    
-    <title>Login/Register page</title>
+
+    <title>Welcome to CelesteMeet</title>
   </head>
-  <body>
-    <div id="result"></div>
-    <div class="login">
-      <div class="form-container">
-        <div class="header">
-          <h1>meetingContact</h1>
+  <body onload="onMount()">
+    <div class="wrapper">
+      <div class="container-body">
+        <div class="sidebar">
+          <div class="project-name">
+            <h1>CelesteMeet</h1>
+          </div>
         </div>
-
-        <div class="button">
-          <div id="page" class="toggle-left"></div>
-          <button type="button" class="btn-toggle" onclick="toLogin()">
-            Login
-          </button>
-          <button type="button" class="btn-toggle" onclick="toRegister()">
-            Register
-          </button>
+        <div class="content">
+          <div class="form-area" id="form-area">
+            <div class="icon-image">
+              <img src="loginIcon.jpg" alt="Login" class="icon" />
+            </div>
+            <h1>Login</h1>
+            <form action="">
+              <div class="formContainer">
+                <p>Email Address</p>
+                <input type="text" id="email" placeholder="Email Address" />
+              </div>
+              <div class="formContainer">
+                <p>Password</p>
+                <input type="password" id="password" placeholder="Password" />
+              </div>
+              <div class="sign-up-div" onClick="displayRegister()">
+                New to CelesteMeet? Sign up!
+              </div>
+              <br />
+              <button type="button" class="btn btn-primary" onClick="doLogin()" style="width: 100%">
+                Sign in
+              </button>
+            </form>
+          </div>
+          <div class="message" id="message"></div>
         </div>
-        <form id="login" method="POST">
-          <div class="form-group">
-            <label for="email">Email address</label>
-            <input
-              type="email"
-              name="email"
-              class="form-control"
-              aria-describedby="emailHelp"
-              placeholder="Email"
-              id="email"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              name="password"
-              class="form-control"
-              placeholder="Password"
-              id="password"
-              required
-            />
-          </div>
-          <button type="button" class="btn btn-secondary" onclick="doLogin()">
-            Login
-          </button>
-          <br><div class="form-group" id="errorMessageLogin"></div>
-        </form>
-
-        <form id="register" method="POST">
-          <div class="form-group">
-            <label for="RegisterEmail">Email address</label>
-            <input
-              type="email"
-              name="registerEmail"
-              class="form-control"
-              aria-describedby="emailHelp"
-              placeholder="Enter email"
-              id="registerEmail"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input
-              type="password"
-              name="registerpwd"
-              class="form-control"
-              placeholder="Password"
-              id="registerPWD"
-              required
-            />
-          </div>
-          <div class="form-group">
-            <label for="confirmation">Confirm Password</label>
-            <input
-              type="password"
-              name="confirmation"
-              class="form-control"
-              placeholder="Password"
-              id="confirmPWD"
-              required
-            />
-          </div>
-          <button type="button" class="btn btn-secondary" onclick="doRegister()">Register</button>
-          <br><div class="form-group" id="errorMessageRegister"></div>
-          <br><div class="form-group" id="Success"></div>
-        </form>
-        
       </div>
     </div>
-    <!--DEBUG: commented this line out (9-11) -->
-    <script src="js/login.js"></script>
-    <!-- <script type = "text/javascript" src ="./md5.js"></script>  -->
+    <script src="./index.js"></script>
   </body>
 </html>

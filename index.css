@@ -1,0 +1,178 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Roboto+Mono:ital,wght@1,200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-image: url(loginbg.jpg);
+  background-repeat: no-repeat;
+}
+
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+  display: grid;
+  place-items: center;
+}
+
+.container-body {
+  position: relative;
+  width: 90%;
+  height: 80%;
+  margin: 20px;
+  background-color: white;
+  border-radius: 15px;
+  display: flex;
+  overflow: hidden;
+}
+
+.sidebar {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex: 0.65;
+  overflow: hidden;
+  background-color: rgb(51, 102, 255);
+  background-image: url(socialbg.jpg);
+  background-size: cover;
+  background-position: center;
+  right: 0;
+  color: white;
+}
+
+.project-name {
+  position: absolute;
+  color: white;
+  font-family: "Merriweather", serif;
+  margin-left: 20px;
+}
+
+.content {
+  position: relative;
+  flex: 0.35;
+  overflow: hidden;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  /* text-align: center; */
+}
+
+.icon-image {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.icon {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+}
+
+.content h1 {
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  margin-bottom: 20px;
+  font-family: "Merriweather", serif;
+}
+
+.content input {
+  outline: none;
+  padding: 10px;
+}
+
+.content input {
+  display: flex;
+  height: 35px;
+  width: 90%;
+  margin-bottom: 20px;
+  outline: none;
+  font-size: 16px;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+.content p {
+  font: bold;
+  margin-left: 5px;
+  margin-bottom: 3px;
+}
+
+.formContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.content button {
+  margin-top: 10px;
+}
+
+.sign-up-div {
+  margin-top: -15px;
+  color: dodgerblue;
+  font-family: "Roboto", sans-serif;
+}
+
+.sign-up-div:hover {
+  color: crimson;
+  cursor: pointer;
+}
+
+.message {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  bottom: 0;
+  font-size: 20px;
+}
+
+@media screen and (max-height: 520px) {
+    body {
+        overflow: scroll;
+    }
+    
+    .container-body{
+        overflow: scroll;
+    }
+    
+    .content {
+        overflow: scroll;
+    }
+}
+
+@media screen and (max-width: 460px) {
+    body {
+        background-image: url();
+        overflow: scroll;
+    }
+    .container-body {
+        width: 90%;
+        height: 90%;
+        overflow: scroll;
+    }
+    
+    .sidebar {
+        flex: 0;
+    }
+    
+    .content {
+        flex: 1;
+        overflow: scroll;
+    }
+    
+    .sign-up-div:hover {
+      color: crimson;
+      cursor: pointer;
+    }
+}
