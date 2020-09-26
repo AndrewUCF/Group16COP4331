@@ -1,0 +1,248 @@
+@import url("https://fonts.googleapis.com/css2?family=Merriweather:ital@1&family=Roboto+Mono:ital,wght@1,200&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@1,300&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-size: cover;
+  background-image: url("mainbg.jpg");
+}
+
+h3 {
+  font-family: "Roboto", sans-serif;
+  text-align: center;
+}
+
+
+
+.fa-plus:hover {
+  color: red;
+  cursor: pointer;
+}
+
+.navbar {
+  margin: 0;
+  padding: 0;
+  height: 60px;
+  width: 100%;
+  position: fixed;
+  display: flex;
+  justify-content: space-around;
+  background-color: black;
+}
+
+.title {
+  color: white;
+  font-family: "Merriweather", serif;
+}
+
+.notification {
+  width: 20%;
+  height: 100%;
+  color: white;
+  text-align: center;
+}
+
+.signout:hover {
+  color: crimson;
+  cursor: pointer;
+}
+
+.content {
+  position: absolute;
+  height: calc(100% - 60px);
+  width: 100%;
+  display: grid;
+  place-items: center;
+}
+
+.content-body {
+  display: flex;
+  height: 90%;
+  width: 70%;
+  border-radius: 5px;
+  background-color: white;
+  box-shadow: 5px 10px;
+}
+
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  flex: 0.4;
+  overflow-x: hidden;
+}
+
+.sidebar-header {
+  justify-content: space-between;
+  padding: 20px;
+  border-right: 1px solid black;
+  display: flex;
+  flex-direction: row;
+}
+
+.search {
+  display: flex;
+  margin: 5px;
+}
+
+.search > input {
+  flex: 1;
+  background-color: #f8f8ff;
+}
+
+.search > button {
+  outline: none;
+  border: none;
+  background-color: #d9d9d9;
+}
+
+.fa-search:hover {
+  color: dodgerblue;
+  cursor: pointer;
+}
+
+.fa-long-arrow-alt-left:hover {
+  color: blue;
+  cursor: pointer;
+}
+
+.fa-long-arrow-alt-left {
+  color: black;
+}
+
+.contacts {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  overflow-y: scroll;
+  text-transform: capitalize;
+  overflow: wrap;
+  /*background-size: cover;*/
+  /*background-position: center;*/
+  flex: 1 1;
+}
+
+.contacts p{
+    font-size: 20px;
+    margin: 0;
+    padding: 0;
+    font-weight: normal;
+    font-family: 'Roboto', sans-serif;
+}
+
+.contacts::-webkit-scrollbar {
+  display: none;
+}
+
+.contact-information {
+  display: flex;
+  flex-direction: column;
+  flex: 0.6;
+  overflow: hidden;
+}
+
+.contact-information-header {
+  padding: 20px;
+}
+
+.contact-information-body {
+  text-align: center;
+}
+
+.card-container {
+  display: flex;
+  flex: 1 1 auto;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+}
+
+.card-body {
+  width: 60%;
+  height: 80%;
+  margin: 15px;
+  margin-top: 20px;
+  background-image: url(cardbg.jpg);
+  background-size: cover;
+  background-position: center;
+}
+
+.card-text {
+  padding: 20px;
+  font-family: "Roboto", sans-serif;
+}
+
+.card-button {
+  position: absolute;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.confirm-delete {
+  position: absolute;
+  width: 100%;
+  left: 0;
+  bottom: 55px;
+  /*top: 0;*/
+}
+
+.displayName {
+  cursor: pointer;
+}
+
+.displayName:hover {
+  color: red;
+}
+
+.form-container {
+  margin: 20px;
+  margin-top: 50px;
+}
+
+.exit {
+  position: absolute;
+  top: 25px;
+  left: 30px;
+  margin-top: 40px;
+  color: white;
+}
+
+
+@media screen and (max-width: 700px) {
+    body {
+        overflow: scroll;
+    }
+    
+    .navbar {
+        justify-content: flex-start;
+    }
+    .content {
+        top: 60px;
+        place-items: start;
+    }
+    .content-body {
+        width: 100%;
+        height: calc(100% - 60px);
+    }
+    .contact-information {
+        overflow: scroll;
+    }
+    
+    .contact-information-body {
+        display: none;
+    }
+    
+    .sidebar {
+        overflow-x: scroll;
+    }
+    
+    .card-text {
+        padding: 5px;
+    }
+    
+    
+}
